@@ -86,5 +86,5 @@ php artisan make:migration create_vips_table --create=vips
 php artisan make:migration create_turkifications_table --create=turkifications
 
 git add .
-git commit -m "init"
+git commit -m "edit Readme"
 git push

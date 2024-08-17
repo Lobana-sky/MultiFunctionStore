@@ -88,3 +88,4 @@ php artisan make:migration create_turkifications_table --create=turkifications
 git add .
 git commit -m "edit Readme"
 git push
+# end

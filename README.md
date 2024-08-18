@@ -71,7 +71,8 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 composer create-project laravel/laravel MultiFunctionStore
 cd MultiFunctionStore/
-
+php artisan serve
+php artisan migrate:fresh
 php artisan make:model App
 php artisan make:model AppOrder
 php artisan make:model Vip
@@ -89,3 +90,6 @@ git add .
 git commit -m "edit Readme"
 git push
 # end
+
+# Reuirements 
+- PHP 8.3.6 

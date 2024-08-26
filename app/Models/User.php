@@ -22,9 +22,10 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $table="users";
     protected $fillable = [
         'user_name',
-        'fist_name',
+        'first_name',
         'last_name',
         'mobile',
         'role',//1,2,3,4  --- 1 is admin

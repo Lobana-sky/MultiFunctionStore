@@ -14,12 +14,14 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('user_name');
-            $table->string('fist_name');
+            $table->string('first_name');
             $table->string('last_name');
             $table->string('mobile');
             $table->integer('role');//1,2,3,4  --- 1 is admin
-            $table->integer('agent_id');
-            $table->integer('vip_id');
+            $table->integer('agent_id')->nullable();
+           	
+           
+            $table->integer('vip_id')->nullable();
             $table->foreign('vip_id')->references('id')->on('vips')->onDelete('cascade');
             $table->string('image');
             $table->string('email')->unique();

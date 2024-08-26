@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('apps', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('player_no');
+            $table->integer('player_no')->nullable();
             $table->integer('price');
             $table->string('image');
             $table->timestamps();

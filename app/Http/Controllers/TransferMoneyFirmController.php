@@ -14,7 +14,8 @@ class TransferMoneyFirmController extends Controller
      */
     public function index()
     {
-        //
+        $transferMoneyFirms=DB::table('transferMoneyFirms')->select('*')->orderBy('id', 'desc')->paginate(500);
+        return view('backend.transferMoneyFirms.index', compact('transferMoneyFirms'));
     }
 
     /**
@@ -22,7 +23,7 @@ class TransferMoneyFirmController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.transferMoneyFirms.create');
     }
 
     /**
@@ -30,7 +31,10 @@ class TransferMoneyFirmController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+       
+        TransferMoneyFirm::create($input);
+        return back()->with('message', 'تمت اضافة العميل بنجاح');
     }
 
     /**
@@ -38,7 +42,8 @@ class TransferMoneyFirmController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $transferMoneyFirms=DB::table('transferMoneyFirms')->select('*')->where('role',$id)->orderBy('id', 'desc')->paginate(500);
+        return view('backend.transferMoneyFirms.users',compact('transferMoneyFirms'));
     }
 
     /**
@@ -54,7 +59,16 @@ class TransferMoneyFirmController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $transferMoneyFirm = TransferMoneyFirm::findOrFail($id);
+        $input = $request->all();
+       
+        $transferMoneyFirm->update([
+           'name' => $input['name'],
+           'iban' => $input['iban'],
+           'account_name' => $input['account_name'],
+        ]);
+        
+        return back()->with('message', 'تم التعديل بنجاح');
     }
 
     /**
@@ -62,6 +76,8 @@ class TransferMoneyFirmController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $transferMoneyFirm= TransferMoneyFirm::findOrFail($id);
+        $transferMoneyFirm->delete();
+        return back()->with('message', 'تم الحذف  بنجاح');
     }
 }

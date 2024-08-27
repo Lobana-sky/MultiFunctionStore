@@ -14,7 +14,6 @@ class TurkificationController extends Controller
      */
     public function index()
     {
-    //    dd('kkk');
        $turkifications=DB::table('turkifications')->select('*')->orderBy('id', 'desc')->paginate(500);
        //User::all()->paginate(500);
        return view('backend.turkifications.index', compact('turkifications'));

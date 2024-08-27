@@ -14,7 +14,8 @@ class AppController extends Controller
      */
     public function index()
     {
-       return view('backend.apps.index');
+       $apps=DB::table('apps')->select('*')->orderBy('id', 'desc')->paginate(500);
+       return view('backend.apps.index', compact('apps'));
     }
 
     /**
@@ -23,6 +24,7 @@ class AppController extends Controller
     public function create()
     {
         //
+        return view('backend.apps.create');
     }
 
     /**
@@ -30,7 +32,10 @@ class AppController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        App::create($input);
+        return back()->with('message', 'تمت الاضافة بنجاح');
     }
 
     /**
@@ -54,7 +59,17 @@ class AppController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $app = App::findOrFail($id);
+        $input = $request->all();
+        $app->update([
+        'name' => $input['name'],
+        'player_no' => $input['player_no'],
+        'price' => $input['price'],
+        ]);
+       
+        return back()->with('message', 'تم التعديل بنجاح');
+
+        //if faile?
     }
 
     /**
@@ -62,6 +77,8 @@ class AppController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $app= App::findOrFail($id);
+        $app->delete();
+        return back()->with('message', 'تم الحذف  بنجاح');
     }
 }

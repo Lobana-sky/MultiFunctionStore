@@ -23,7 +23,6 @@ class AppController extends Controller
      */
     public function create()
     {
-        //
         return view('backend.apps.create');
     }
 
@@ -43,7 +42,6 @@ class AppController extends Controller
      */
     public function show(string $id)
     {
-        //
     }
 
     /**
@@ -51,7 +49,6 @@ class AppController extends Controller
      */
     public function edit(string $id)
     {
-        //
     }
 
     /**

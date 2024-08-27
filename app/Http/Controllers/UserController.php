@@ -24,7 +24,6 @@ class UserController extends Controller
      */
     public function create()
     {
-        // dd("create");
         return view('backend.users.create');
     }
 
@@ -39,14 +38,14 @@ class UserController extends Controller
            
           ]);
   */
-          $input = $request->all();
-         if ($file = $request->file('image')) {
-              $name = 'user'.time().$file->getClientOriginalName();
-              $file->move('images/users/', $name);
-              $input['image'] = $name;
-          }
-          User::create($input);
-          return back()->with('message', 'تمت اضافة العميل بنجاح');
+        $input = $request->all();
+        if ($file = $request->file('image')) {
+           $name = 'user'.time().$file->getClientOriginalName();
+           $file->move('images/users/', $name);
+           $input['image'] = $name;
+        }
+        User::create($input);
+        return back()->with('message', 'تمت اضافة العميل بنجاح');
     }
 
     /**
@@ -63,8 +62,6 @@ class UserController extends Controller
     //    Route::view('/user/category', 'backend.users.users',);
       
     }
-
- 
 
     /**
      * Show the form for editing the specified resource.
@@ -96,7 +93,6 @@ class UserController extends Controller
             'image' => $input['image'],
           ]);
         
-
         return back()->with('message', 'تم التعديل بنجاح');
 
     }
@@ -109,6 +105,5 @@ class UserController extends Controller
         $user= User::findOrFail($id);
         $user->delete();
         return back()->with('message', 'تم الحذف  بنجاح');
-
     }
 }

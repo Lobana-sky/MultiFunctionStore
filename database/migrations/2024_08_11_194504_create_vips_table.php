@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('vips', function (Blueprint $table) {
             $table->id();
+            $table->string('role_name');
             $table->integer('commession_percent');
             $table->timestamps();
         });

@@ -14,7 +14,9 @@ class VipController extends Controller
      */
     public function index()
     {
-        //
+        // dd('kkk');
+        $vips=DB::table('vips')->select('*')->orderBy('id', 'desc')->paginate(500);
+        return view('backend.vips.index', compact('vips'));
     }
 
     /**
@@ -22,7 +24,7 @@ class VipController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.vips.create');
     }
 
     /**
@@ -30,7 +32,10 @@ class VipController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        
+        Vip::create($input);
+        return back()->with('message', 'تمت اضافة  بنجاح');
     }
 
     /**
@@ -38,7 +43,6 @@ class VipController extends Controller
      */
     public function show(string $id)
     {
-        //
     }
 
     /**
@@ -54,7 +58,15 @@ class VipController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $vip = Vip::findOrFail($id);
+        $input = $request->all();
+       
+        $vip->update([
+           'role_name' => $input['role_name'],
+           'commession_percent' => $input['commession_percent'],
+        ]);
+        
+        return back()->with('message', 'تم التعديل بنجاح');
     }
 
     /**
@@ -62,6 +74,8 @@ class VipController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $vip= Vip::findOrFail($id);
+        $vip->delete();
+        return back()->with('message', 'تم الحذف  بنجاح');
     }
 }

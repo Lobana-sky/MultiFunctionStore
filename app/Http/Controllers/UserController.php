@@ -82,19 +82,18 @@ class UserController extends Controller
             $file->move('images/users/', $name);
             $input['image'] = $name;
         }
-          $user->update([
-            'user_name' => $input['user_name'],
-            'last_name' => $input['last_name'],
-            'password' => bcrypt($input['password']),
-            'first_name' => $input['first_name'],
-            'mobile' => $input['mobile'],
-            'role' => $input['role'],
-            'email' => $input['email'],
-            'image' => $input['image'],
-          ]);
+        $user->update([
+           'user_name' => $input['user_name'],
+           'last_name' => $input['last_name'],
+           'password' => bcrypt($input['password']),
+           'first_name' => $input['first_name'],
+           'mobile' => $input['mobile'],
+           'role' => $input['role'],
+           'email' => $input['email'],
+           'image' => $input['image'],
+        ]);
         
         return back()->with('message', 'تم التعديل بنجاح');
-
     }
 
     /**

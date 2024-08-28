@@ -53,6 +53,7 @@
                                 <a href="#App" class="has-arrow"><i class="fa fa-th-large"></i><span>الخدمات</span></a>
                                 <ul>
                                     <li><a href="/turkification/">التتريك</a></li>
+                                    <li><a href="/vip/">أنواع العملاء</a></li>
                                     <li><a href="app-chat.html">قسم الألعاب</a>
                                     <ul>
                                             <li><a href="blog-dashboard.html">1</a></li>

@@ -19,6 +19,7 @@ class Vip extends Model
      */
     protected $fillable = [
         'commession_percent',
+        'role_name',
     ];
     
     /**

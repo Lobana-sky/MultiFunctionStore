@@ -32,7 +32,7 @@ class VipController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-        
+        // dd($input);
         Vip::create($input);
         return back()->with('message', 'تمت الاضافة بنجاح');
     }

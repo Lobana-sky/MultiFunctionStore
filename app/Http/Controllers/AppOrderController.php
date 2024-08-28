@@ -12,7 +12,7 @@ class AppOrderController extends Controller
 
     public function index()
     {
-        $appOrders=DB::table('appOrders')->select('*')->orderBy('id', 'desc')->paginate(500);
+        $appOrders=DB::table('app_orders')->select('*')->orderBy('id', 'desc')->paginate(500);
         return view('backend.appOrders.index', compact('appOrders'));
     }
 

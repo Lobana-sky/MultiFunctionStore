@@ -147,20 +147,20 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="title" id="defaultModalLabeledit">تعديل معلومات العميل </h4>
+                <h4 class="title" id="defaultModalLabeledit">تعديل معلومات تطبيق </h4>
             </div>
             <div class="modal-body"> 
                 <form method="POST" action="{{ route('app.update', ['app' => $app->id]) }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     {{ method_field('PATCH') }}
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" value="{{$app->name}}" required placeholder="الاسم"  name="name" aria-label="name" aria-describedby="basic-addon2">
+                        <input type="text" class="form-control" value="{{$app->name}}" required placeholder="الاسم" name="name" aria-label="name" aria-describedby="basic-addon2">
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" value="{{$app->player_no}}" required placeholder="رقم اللاعب"  name="player_no" aria-label="player_no" aria-describedby="basic-addon2">
+                        <input type="text" class="form-control" value="{{$app->player_no}}" required placeholder="رقم اللاعب" name="player_no" aria-label="player_no" aria-describedby="basic-addon2">
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" value="{{$app->price}}" required placeholder="السعر"  name="price" aria-label="price" aria-describedby="basic-addon2">
+                        <input type="text" class="form-control" value="{{$app->price}}" required placeholder="السعر" name="price" aria-label="price" aria-describedby="basic-addon2">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -175,7 +175,7 @@
                                
                     <div class="modal-footer"> 
                         <button type="submit" class="btn btn-primary">حفظ</button>
-                    <a href="#" class="btn btn-secondary">الغاء الأمر</a>
+                        <a href="#" class="btn btn-secondary">الغاء الأمر</a>
                     </div>
                 </form>
             </div>

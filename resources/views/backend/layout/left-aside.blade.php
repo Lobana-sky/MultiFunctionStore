@@ -46,7 +46,6 @@
                                     <li><a href="/users/2/category">الوكلاء</a></li>
                                     <li><a href="/users/3/category">أصحاب المحلات</a></li>
                                     <li><a href="/users/4/category">زبون عادي</a></li>
-                                   
                                 </ul>
                             </li>
                             <li>
@@ -55,9 +54,9 @@
                                     <li><a href="/turkification/">التتريك</a></li>
                                     <li><a href="/vip/">أنواع العملاء</a></li>
                                     <li><a href="/app/">قسم الألعاب</a></li>
+                                    <li><a href="/app-order/">طلبات قسم الألعاب</a></li>
                                     <li><a href="/transfer-money-firm/">قسم شركات الشحن</a></li>
                                     <li><a href="/transfer-money-firm-order/">طلبات قسم شركات الشحن</a></li>
-                                    <li><a href="/app-order/">طلبات قسم الألعاب</a></li>
                                     
                                     <li><a href="/app.html/">قسم الألعاب</a>
                                     <ul>

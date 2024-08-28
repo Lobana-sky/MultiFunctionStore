@@ -49,8 +49,8 @@
                                     <thead>
                                         <tr>                                            
                                             <th>اسم شركة الشحن</th>
-                                            <th>رقم اللاعب</th>
-                                            <th>السعر</th>
+                                            <th>iban</th>
+                                            <th>اسم صاحب الحساب</th>
                                             <th>العمليات</th>
                                         </tr>
                                     </thead>
@@ -142,7 +142,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="title" id="defaultModalLabeledit">تعديل معلومات العميل </h4>
+                <h4 class="title" id="defaultModalLabeledit">تعديل معلومات شركة شحن </h4>
             </div>
             <div class="modal-body"> 
                 <form method="POST" action="{{ route('transfer-money-firm.update', ['transferMoneyFirm' => $transferMoneyFirm->id]) }}" enctype="multipart/form-data">
@@ -159,9 +159,10 @@
                     </div>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                     <!-- <input type="hidden" name="transfer_money_firm" value="1" /> -->
+
                     <div class="modal-footer"> 
                         <button type="submit" class="btn btn-primary">حفظ</button>
-                    <a href="#" class="btn btn-secondary">الغاء الأمر</a>
+                        <a href="#" class="btn btn-secondary">الغاء الأمر</a>
                     </div>
                 </form>
             </div>

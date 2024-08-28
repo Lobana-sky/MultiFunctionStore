@@ -48,6 +48,8 @@
                                 <table class="table table-hover js-basic-example dataTable table-custom mb-0">
                                     <thead>
                                         <tr>                                            
+                                            <th>اسم المستخدم</th>
+                                            <th>اسم الشركة</th>
                                             <th>اسم المرسل</th>
                                             <th>القيمة</th>
                                             <th>العملة</th>
@@ -61,6 +63,7 @@
                                             <td class="project-title">
                                                 <h6>{{$transferMoneyFirmOrder->sender}}</h6>
                                             </td>
+                                            <td>{{$transferMoneyFirmOrder->user_id}}</td>
                                             <td>{{$transferMoneyFirmOrder->value}}</td>
                                             <td>{{$transferMoneyFirmOrder->currency}}</td>
                                             <td>{{$transferMoneyFirmOrder->dekont_no}}</td>
@@ -93,8 +96,14 @@
             </div>
             <div class="modal-body"> 
                 <form method="Post" action="{{ route('transfer-money-firm-order.store') }}" enctype="multipart/form-data">
-                <div class="input-group mb-3">
-                        <input type="text" class="form-control" required placeholder="اسم شركة الشحن" name="sender" aria-label="sender" aria-describedby="basic-addon2">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" required placeholder="اسم شركة الشحن" name="transfer_money_firm_id" aria-label="transfer_money_firm_id" aria-describedby="basic-addon2">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" required placeholder="اسم المستخدم" name="user_id" aria-label="user_id" aria-describedby="basic-addon2">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" required placeholder="اسم المرسل" name="sender" aria-label="sender" aria-describedby="basic-addon2">
                     </div>
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" required placeholder="القيمة" name="value" aria-label="value" aria-describedby="basic-addon2">
@@ -152,14 +161,20 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="title" id="defaultModalLabeledit">تعديل معلومات العميل </h4>
+                <h4 class="title" id="defaultModalLabeledit">تعديل معلومات طلب شركة شحن جديدة</h4>
             </div>
             <div class="modal-body"> 
                 <form method="POST" action="{{ route('transfer-money-firm-order.update', ['transferMoneyFirmOrder' => $transferMoneyFirmOrder->id]) }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     {{ method_field('PATCH') }}
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" value="{{$transferMoneyFirmOrder->sender}}" required placeholder="اسم شركة الشحن"  name="sender" aria-label="sender" aria-describedby="basic-addon2">
+                        <input type="text" class="form-control" value="{{$transferMoneyFirmOrder->transfer_money_firm_id}}" required placeholder="اسم شركة الشحن" name="transfer_money_firm_id" aria-label="transfer_money_firm_id" aria-describedby="basic-addon2">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" value="{{$transferMoneyFirmOrder->user_id}}" required placeholder="اسم المستخدم" name="user_id" aria-label="user_id" aria-describedby="basic-addon2">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" value="{{$transferMoneyFirmOrder->sender}}" required placeholder="اسم المرسل" name="sender" aria-label="sender" aria-describedby="basic-addon2">
                     </div>
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" value="{{$transferMoneyFirmOrder->value}}" required placeholder="القيمة" name="value" aria-label="value" aria-describedby="basic-addon2">
@@ -178,7 +193,7 @@
 
                     <div class="modal-footer"> 
                         <button type="submit" class="btn btn-primary">حفظ</button>
-                    <a href="#" class="btn btn-secondary">الغاء الأمر</a>
+                        <a href="#" class="btn btn-secondary">الغاء الأمر</a>
                     </div>
                 </form>
             </div>

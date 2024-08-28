@@ -136,7 +136,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="title" id="defaultModalLabeledit"> طلبي </h4>
+                <h4 class="title" id="defaultModalLabeledit"> تعديل معلومات طلبي</h4>
             </div>
             <div class="modal-body"> 
                 <form method="POST"  action="{{ route('turkification.update', ['turkification' => $turkification->id]) }}" enctype="multipart/form-data">
@@ -149,7 +149,7 @@
                                
                     <div class="modal-footer"> 
                         <button type="submit" class="btn btn-primary">حفظ</button>
-                    <a href="#" class="btn btn-secondary">الغاء الأمر</a>
+                        <a href="#" class="btn btn-secondary">الغاء الأمر</a>
                     </div>
                 </form>
             </div>

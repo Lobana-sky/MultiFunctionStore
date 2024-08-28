@@ -30,6 +30,8 @@
                     <div class="d-flex flex-row-reverse">
                         <div class="page_action">
                             <a href="javascript:void(0);" data-toggle="modal" class="btn btn-primary" data-target="#createmodal" ><i class="fa fa-add">إضافة طلب التتريك</i></a>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal"><i class="fa fa-download"></i> Download report</button>
+                            <button type="button" class="btn btn-secondary"><i class="fa fa-send"></i> Send report</button>
                         </div>
                         <div class="p-2 d-flex">
                         </div>
@@ -134,7 +136,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="title" id="defaultModalLabeledit"> طلبي </h4>
+                <h4 class="title" id="defaultModalLabeledit"> تعديل معلومات طلبي</h4>
             </div>
             <div class="modal-body"> 
                 <form method="POST"  action="{{ route('turkification.update', ['turkification' => $turkification->id]) }}" enctype="multipart/form-data">
@@ -147,7 +149,7 @@
                                
                     <div class="modal-footer"> 
                         <button type="submit" class="btn btn-primary">حفظ</button>
-                    <a href="#" class="btn btn-secondary">الغاء الأمر</a>
+                        <a href="#" class="btn btn-secondary">الغاء الأمر</a>
                     </div>
                 </form>
             </div>

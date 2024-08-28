@@ -8,7 +8,8 @@
     <div class="container-fluid">
         @if(session()->has('message'))
         <div class="alert alert-success" 
-            style="position: absolute;
+            style="
+            position: absolute;
             z-index: 99999;
             top: 10%;
             left: 30%;
@@ -29,7 +30,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="d-flex flex-row-reverse">
                         <div class="page_action">
-                            <a href="javascript:void(0);" data-toggle="modal" class="btn btn-primary" data-target="#createmodal" ><i class="fa fa-add">إضافة طلب التتريك</i></a>
+                            <a href="javascript:void(0);" data-toggle="modal" class="btn btn-primary" data-target="#createmodal" ><i class="fa fa-add">إضافة طلب تطبيق جديد</i></a>
                         </div>
                         <div class="p-2 d-flex">
                         </div>
@@ -40,33 +41,31 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="card">
                         <div class="header">
-                            <h2> طلبات التتريك</h2>
+                            <h2>طلبات التطبيقات</h2>
                         </div>
                         <div class="body project_report">
                             <div class="table-responsive">
                                 <table class="table table-hover js-basic-example dataTable table-custom mb-0">
                                     <thead>
-                                        <tr>                                            
+                                        <tr> 
+                                            <th>اسم التطبيق</th>
                                             <th>اسم المستخدم</th>
-                                            <th>IME</th>
-                                            <th>الحالة</th>
-                                            <th>العمليات</th>
+                                            <th>عدد</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($turkifications as $key => $turkification)
+                                        @foreach ($appOrders as $key => $appOrder)
                                         <tr>
                                             <td class="project-title">
-                                                <h6>{{$turkification->id}}</h6>
-                                                <small>user name</small>
+                                                <h6>{{$appOrder->app_id}}</h6>
                                             </td>
-                                            <td>done</td>
-                                            <td>{{$turkification->ime}}</td>
+                                            <td>{{$appOrder->user_id}}</td>
+                                            <td>{{$appOrder->count}}</td>
                                             <td class="project-actions">
                                                 <a href="#defaultModal" data-toggle="modal" data-target="#defaultModal">
                                                 <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary"><i class="icon-eye"></i></a>
-                                                <a href="javascript:void(0);" data-toggle="modal" data-target="#editModal{{$turkification->id}}" class="btn btn-sm btn-outline-success"><i class="icon-pencil"></i></a>
-                                                <a  href="javascript:void(0);" data-toggle="modal" data-target="#deleteModal{{$turkification->id}}" class="btn btn-sm btn-outline-danger" ><i class="icon-trash"></i></a>
+                                                <a href="javascript:void(0);" data-toggle="modal" data-target="#editModal{{$appOrder->id}}" class="btn btn-sm btn-outline-success"><i class="icon-pencil"></i></a>
+                                                <a  href="javascript:void(0);" data-toggle="modal" data-target="#deleteModal{{$appOrder->id}}" class="btn btn-sm btn-outline-danger" ><i class="icon-trash"></i></a>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -86,15 +85,23 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="title" id="defaultModalLabelcreate">إضافة طلب التتريك</h4>
+                <h4 class="title" id="defaultModalLabelcreate">إضافة طلب تطبيق جديد</h4>
             </div>
             <div class="modal-body"> 
-                <form method="Post"  action="{{ route('turkification.store') }}" enctype="multipart/form-data">
+                <form method="Post" action="{{ route('app-order.store') }}" enctype="multipart/form-data">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" required placeholder="IME"  name="ime" aria-label="ime" aria-describedby="basic-addon2">
+                        <input type="text" class="form-control" required placeholder="اسم التطبيق" name="app_id" aria-label="app_id" aria-describedby="basic-addon2">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" required placeholder="اسم المستخدم" name="user_id" aria-label="user_id" aria-describedby="basic-addon2">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" required placeholder="عدد" name="count" aria-label="count" aria-describedby="basic-addon2">
                     </div>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                    <input type="hidden" name="app_id" value="1" />
                     <input type="hidden" name="user_id" value="1" />
+                    <!-- <input type="hidden" name="transfer_money_firm" value="1" /> -->
                     <div class="modal-footer">   
                         <button type="submit" class="btn btn-primary">حفظ</button>
                         <a href="#" class="btn btn-secondary">الغاء الأمر</a>
@@ -106,18 +113,20 @@
 </div>
 
 <!--------------delete -------------->
-@foreach ($turkifications as $key => $turkification)
-<div class="modal fade" id="deleteModal{{$turkification->id}}" tabindex="-1" role="dialog">
+@foreach ($appOrders as $key => $appOrder)
+<div class="modal fade" id="deleteModal{{$appOrder->id}}" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="title" id="defaultModalLabeldelete">هل أنت بالتاكيد تريد الحذف </h4>
             </div>
             <div class="modal-body"> 
-            <form action="{{ route('turkification.destroy', $turkification->id) }}" method="POST">
+            <form action="{{ route('app-order.destroy', $appOrder->id) }}" method="POST">
                @csrf
                @method('DELETE')
                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+               <!-- <input type="hidden" name="transfer_money_firm" value="1" /> -->
+
                <div class="modal-footer">
                    <button type="submit" class="btn btn-primary">نعم</button>
                    <a href="#" class="btn btn-secondary">الغاء الأمر</a>
@@ -129,25 +138,32 @@
 @endforeach
 
 <!--------------edit -------------->
-@foreach ($turkifications as $key => $turkification)
-<div class="modal fade" id="editModal{{$turkification->id}}" tabindex="-1" role="dialog">
+@foreach ($appOrders as $key => $appOrder)
+<div class="modal fade" id="editModal{{$appOrder->id}}" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="title" id="defaultModalLabeledit"> طلبي </h4>
+                <h4 class="title" id="defaultModalLabeledit">تعديل معلومات طلب التطبيق </h4>
             </div>
             <div class="modal-body"> 
-                <form method="POST"  action="{{ route('turkification.update', ['turkification' => $turkification->id]) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('app-order.update', ['appOrder' => $appOrder->id]) }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     {{ method_field('PATCH') }}
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" value="{{$turkification->ime}}" required placeholder="ime" name="ime" aria-label="ime" aria-describedby="basic-addon2">
+                        <input type="text" class="form-control" value="{{$appOrder->app_id}}" required placeholder="اسم التطبيق" name="app_id" aria-label="app_id" aria-describedby="basic-addon2">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" value="{{$appOrder->user_id}}" required placeholder="اسم المستخدم" name="user_id" aria-label="user_id" aria-describedby="basic-addon2">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" value="{{$appOrder->count}}" required placeholder="عدد" name="count" aria-label="count" aria-describedby="basic-addon2">
                     </div>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                               
+                    <!-- <input type="hidden" name="transfer_money_firm" value="1" /> -->
+
                     <div class="modal-footer"> 
                         <button type="submit" class="btn btn-primary">حفظ</button>
-                    <a href="#" class="btn btn-secondary">الغاء الأمر</a>
+                        <a href="#" class="btn btn-secondary">الغاء الأمر</a>
                     </div>
                 </form>
             </div>

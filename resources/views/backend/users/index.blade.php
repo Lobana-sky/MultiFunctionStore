@@ -315,9 +315,7 @@
                             <input type="text" class="form-control" value="{{$user->mobile}}" required placeholder=" رقم الهاتف" aria-label=" رقم الهاتف"name="mobile" -describedby="basic-addon1">
                         </div>
                     </div>
-                                
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                               
                     <div class="modal-footer"> 
                         <button type="submit" class="btn btn-primary">حفظ</button>
                     <a href="#" class="btn btn-secondary">الغاء الأمر</a>

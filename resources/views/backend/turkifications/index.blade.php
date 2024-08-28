@@ -64,6 +64,12 @@
                                             </td>
                                             <td>done</td>
                                             <td>{{$turkification->ime}}</td>
+                                            <td class="project-actions">
+                                                <a href="#defaultModal" data-toggle="modal" data-target="#defaultModal">
+                                                <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary"><i class="icon-eye"></i></a>
+                                                <a href="javascript:void(0);" data-toggle="modal" data-target="#editModal{{$turkification->id}}" class="btn btn-sm btn-outline-success"><i class="icon-pencil"></i></a>
+                                                <a  href="javascript:void(0);" data-toggle="modal" data-target="#deleteModal{{$turkification->id}}" class="btn btn-sm btn-outline-danger" ><i class="icon-trash"></i></a>
+                                            </td>
                                         </tr>
                                         @endforeach
                                     </tbody>
@@ -88,12 +94,6 @@
                 <form method="Post"  action="{{ route('turkification.store') }}" enctype="multipart/form-data">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" required placeholder="IME"  name="ime" aria-label="ime" aria-describedby="basic-addon2">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"></span>
-                        </div>
-                        <input type="text" class="form-control" required placeholder=" الكنية" aria-label=" الكنية"name="last_name" -describedby="basic-addon1">
                     </div>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                     <input type="hidden" name="user_id" value="1" />

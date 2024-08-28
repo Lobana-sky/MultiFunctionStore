@@ -66,7 +66,7 @@
                                                 <a href="#defaultModal" data-toggle="modal" data-target="#defaultModal">
                                                 <a href="javascript:void(0);" class="btn btn-sm btn-outline-primary"><i class="icon-eye"></i></a>
                                                 <a href="javascript:void(0);" data-toggle="modal" data-target="#editModal{{$transferMoneyFirm->id}}" class="btn btn-sm btn-outline-success"><i class="icon-pencil"></i></a>
-                                                <a href="javascript:void(0);" data-toggle="modal" data-target="#deleteModal{{$transferMoneyFirm->id}}" class="btn btn-sm btn-outline-danger" ><i class="icon-trash"></i></a>
+                                                <a  href="javascript:void(0);" data-toggle="modal" data-target="#deleteModal{{$transferMoneyFirm->id}}" class="btn btn-sm btn-outline-danger" ><i class="icon-trash"></i></a>
                                             </td>
                                         </tr>
                                         @endforeach
@@ -94,12 +94,13 @@
                         <input type="text" class="form-control" required placeholder="اسم شركة الشحن"  name="name" aria-label="name" aria-describedby="basic-addon2">
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" required placeholder="iban" name="iban" aria-label="iban" aria-describedby="basic-addon2">
+                        <input type="text" class="form-control" required placeholder="iban"  name="iban" aria-label="iban" aria-describedby="basic-addon2">
                     </div>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" required placeholder="اسم صاحب الحساب" name="account_name" aria-label="account_name" aria-describedby="basic-addon2">
+                        <input type="text" class="form-control" required placeholder="اسم صاحب الحساب"  name="account_name" aria-label="account_name" aria-describedby="basic-addon2">
                     </div>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                    <input type="hidden" name="transfer_money_firm" value="1" />
                     <div class="modal-footer">   
                         <button type="submit" class="btn btn-primary">حفظ</button>
                         <a href="#" class="btn btn-secondary">الغاء الأمر</a>
@@ -123,6 +124,8 @@
                @csrf
                @method('DELETE')
                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+               <input type="hidden" name="transfer_money_firm" value="1" />
+
                <div class="modal-footer">
                    <button type="submit" class="btn btn-primary">نعم</button>
                    <a href="#" class="btn btn-secondary">الغاء الأمر</a>
@@ -154,7 +157,9 @@
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" value="{{$transferMoneyFirm->account_name}}" required placeholder="اسم صاحب الحساب"  name="account_name" aria-label="account_name" aria-describedby="basic-addon2">
                     </div>
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />                             
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                    <input type="hidden" name="transfer_money_firm" value="1" />
+
                     <div class="modal-footer"> 
                         <button type="submit" class="btn btn-primary">حفظ</button>
                     <a href="#" class="btn btn-secondary">الغاء الأمر</a>

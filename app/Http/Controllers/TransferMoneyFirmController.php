@@ -29,7 +29,7 @@ class TransferMoneyFirmController extends Controller
         return back()->with('message', 'تمت الاضافة بنجاح');
     }
 
-    public function show(int $id)
+    public function show( $id)
     {
     }
 

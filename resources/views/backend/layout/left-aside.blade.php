@@ -56,6 +56,9 @@
                                     <li><a href="/vip/">أنواع العملاء</a></li>
                                     <li><a href="/app/">قسم الألعاب</a></li>
                                     <li><a href="/transfer-money-firm/">قسم شركات الشحن</a></li>
+                                    <li><a href="/transfer-money-firm-order/">طلبات قسم شركات الشحن</a></li>
+                                    <li><a href="/app-order/">طلبات قسم الألعاب</a></li>
+                                    
                                     <li><a href="/app.html/">قسم الألعاب</a>
                                     <ul>
                                             <li><a href="blog-dashboard.html">1</a></li>
@@ -99,7 +102,7 @@
                                         </ul>
                                     </li> 
 
-                                    <li><a href="app-calendar.html">  خدمة تفيل البرامج</a>
+                                    <li><a href="app-calendar.html">خدمة تفيل البرامج</a>
                                     <ul>
                                             <li><a href="blog-dashboard.html">1</a></li>
                                             <li><a href="blog-post.html">2</a></li>

@@ -12,7 +12,7 @@ class TransferMoneyFirmOrderController extends Controller
 
     public function index()
     {
-        $transferMoneyFirmOrders=DB::table('transferMoneyFirmOrders')->select('*')->orderBy('id', 'desc')->paginate(500);
+        $transferMoneyFirmOrders=DB::table('transfer_money_firm_orders')->select('*')->orderBy('id', 'desc')->paginate(500);
         return view('backend.transferMoneyFirmOrders.index', compact('transferMoneyFirmOrders'));
     }
 

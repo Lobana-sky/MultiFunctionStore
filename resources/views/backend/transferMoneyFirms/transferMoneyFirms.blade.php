@@ -100,7 +100,7 @@
                         <input type="text" class="form-control" required placeholder="اسم صاحب الحساب"  name="account_name" aria-label="account_name" aria-describedby="basic-addon2">
                     </div>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                    <input type="hidden" name="transfer_money_firm" value="1" />
+                    <!-- <input type="hidden" name="transfer_money_firm" value="1" /> -->
                     <div class="modal-footer">   
                         <button type="submit" class="btn btn-primary">حفظ</button>
                         <a href="#" class="btn btn-secondary">الغاء الأمر</a>
@@ -124,7 +124,7 @@
                @csrf
                @method('DELETE')
                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-               <input type="hidden" name="transfer_money_firm" value="1" />
+               <!-- <input type="hidden" name="transfer_money_firm" value="1" /> -->
 
                <div class="modal-footer">
                    <button type="submit" class="btn btn-primary">نعم</button>
@@ -158,8 +158,7 @@
                         <input type="text" class="form-control" value="{{$transferMoneyFirm->account_name}}" required placeholder="اسم صاحب الحساب"  name="account_name" aria-label="account_name" aria-describedby="basic-addon2">
                     </div>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                    <input type="hidden" name="transfer_money_firm" value="1" />
-
+                    <!-- <input type="hidden" name="transfer_money_firm" value="1" /> -->
                     <div class="modal-footer"> 
                         <button type="submit" class="btn btn-primary">حفظ</button>
                     <a href="#" class="btn btn-secondary">الغاء الأمر</a>

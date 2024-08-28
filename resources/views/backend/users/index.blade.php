@@ -3,7 +3,7 @@
 
 @section('content')
 
-<!-- mani page content body part -->
+<!-- main page content body part -->
 <div id="main-content">
     <div class="container-fluid">
         @if(session()->has('message'))

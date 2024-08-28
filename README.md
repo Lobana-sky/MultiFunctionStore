@@ -87,9 +87,11 @@ php artisan make:migration create_turkifications_table --create=turkifications
 
 php artisan make:controller UserController --resource
 php artisan make:controller AppController --resource
+php artisan make:controller AppOrderController --resource
 php artisan make:controller VipController --resource
 php artisan make:controller TurkificationController --resource
 php artisan make:controller TransferMoneyFirmController --resource
+php artisan make:controller TransferMoneyFirmOrderController --resource
 
 
 

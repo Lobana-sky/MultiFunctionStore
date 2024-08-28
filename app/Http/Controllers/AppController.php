@@ -32,7 +32,11 @@ class AppController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
-
+        if ($file = $request->file('image')) {
+            $name = 'app'.time().$file->getClientOriginalName();
+            $file->move('images/apps/', $name);
+            $input['image'] = $name;
+         }
         App::create($input);
         return back()->with('message', 'تمت الاضافة بنجاح');
     }
@@ -58,6 +62,11 @@ class AppController extends Controller
     {
         $app = App::findOrFail($id);
         $input = $request->all();
+        if ($file = $request->file('image')) {
+            $name = 'app_'.time().$file->getClientOriginalName();
+            $file->move('images/apps/', $name);
+            $input['image'] = $name;
+        }
         $app->update([
         'name' => $input['name'],
         'player_no' => $input['player_no'],

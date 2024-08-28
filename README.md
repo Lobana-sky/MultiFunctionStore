@@ -96,7 +96,7 @@ php artisan make:controller TransferMoneyFirmOrderController --resource
 
 
 git add .
-git commit -m "edit Readme"
+git commit -m "clean code"
 git push
 
 

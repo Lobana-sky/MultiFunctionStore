@@ -158,7 +158,7 @@
                     <div class="col-lg-6 col-md-12">
                         <div class="input-group mb-3">
                             الجنس:
-                            <label class="fancy-radio custom-color-green"><input name="gender3" value="ذكر`" type="radio" checked><span><i></i>Male</span></label>
+                            <label class="fancy-radio custom-color-green"><input name="gender3" value="ذكر" type="radio" checked><span><i></i>Male</span></label>
                             <label class="fancy-radio custom-color-green"><input name="gender3" value="أنثى" type="radio"><span><i></i>Female</span></label>
                         </div>
                     </div>
@@ -292,10 +292,11 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">تحميل</span>
                             </div>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" name="image">
-                            <label class="custom-file-label" for="inputGroupFile01">اختر الصورة </label>
-                        </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" name="image">
+                                <label class="custom-file-label" for="inputGroupFile01">اختر الصورة </label>
+                            </div>
+                        </div>    
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">

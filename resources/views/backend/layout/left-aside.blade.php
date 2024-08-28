@@ -54,7 +54,8 @@
                                 <ul>
                                     <li><a href="/turkification/">التتريك</a></li>
                                     <li><a href="/vip/">أنواع العملاء</a></li>
-                                    <li><a href="app-chat.html">قسم الألعاب</a>
+                                    <li><a href="/app/">قسم الألعاب</a></li>
+                                    <li><a href="/app/">قسم الألعاب</a>
                                     <ul>
                                             <li><a href="blog-dashboard.html">1</a></li>
                                             <li><a href="blog-post.html">2</a></li>

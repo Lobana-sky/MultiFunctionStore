@@ -16,6 +16,7 @@ class TransferMoneyFirm extends Model
      *
      * @var array<int, string>
      */
+    // protected $table = 'transferMoneyFirm';
     protected $fillable = [
         'name',
         'iban',

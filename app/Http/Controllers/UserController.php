@@ -45,7 +45,7 @@ class UserController extends Controller
            $input['image'] = $name;
         }
         User::create($input);
-        return back()->with('message', 'تمت اضافة العميل بنجاح');
+        return back()->with('message', 'تمت الاضافة بنجاح');        
     }
 
     /**

@@ -14,7 +14,6 @@ class VipController extends Controller
      */
     public function index()
     {
-        // dd('kkk');
         $vips=DB::table('vips')->select('*')->orderBy('id', 'desc')->paginate(500);
         return view('backend.vips.index', compact('vips'));
     }
@@ -35,7 +34,7 @@ class VipController extends Controller
         $input = $request->all();
         
         Vip::create($input);
-        return back()->with('message', 'تمت اضافة  بنجاح');
+        return back()->with('message', 'تمت الاضافة بنجاح');
     }
 
     /**

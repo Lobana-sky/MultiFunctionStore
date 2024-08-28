@@ -36,7 +36,7 @@ class TransferMoneyFirmOrderController extends Controller
         $input = $request->all();
        
         TransferMoneyFirmOrder::create($input);
-        return back()->with('message', 'تمت اضافة العميل بنجاح');
+        return back()->with('message', 'تمت الاضافة بنجاح');
     }
 
     /**

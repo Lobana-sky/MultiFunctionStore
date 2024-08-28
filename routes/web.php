@@ -24,24 +24,9 @@ use App\Http\Controllers\TransferMoneyFirmOrderController;
 use App\Http\Controllers\TransferMoneyFirmOrder;
 
 
-
-
-#--------------User------------------
-// Route::resource([
-    //     'user' => UserController::class,
-    //     'app' => AppController::class,
-    //     'vip' => VipController::class,
-    //     'turkification' => TurkificationController::class,
-    //     'transfer-money-firm' => TransferMoneyFirmController::class,
-    
-    
-    
-    // ]);
-    
-    
-    Route::get('/', function () {
-        return view('backend.dashboard');
-    });
+Route::get('/', function () {
+    return view('backend.dashboard');
+});
 
 Route::resource(
     'user', UserController::class,
@@ -72,3 +57,15 @@ Route::resource(
 );
 
 Route::get('users/{id}/category', [UserController::class, 'show_category']);
+
+#--------------User------------------
+// Route::resource([
+    //     'user' => UserController::class,
+    //     'app' => AppController::class,
+    //     'vip' => VipController::class,
+    //     'turkification' => TurkificationController::class,
+    //     'transfer-money-firm' => TransferMoneyFirmController::class,
+    
+    
+    
+    // ]);
